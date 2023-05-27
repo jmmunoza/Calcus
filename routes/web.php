@@ -30,3 +30,5 @@ Route::get('/schedule', function () {
 });
 
 Route::get('/test', 'App\Http\Controllers\TestController@index')->name('index');
+
+Auth::routes();
