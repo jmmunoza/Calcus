@@ -28,3 +28,5 @@ Route::get('/exams', function () {
 Route::get('/schedule', function () {
     return view('user.schedule');
 });
+
+Route::get('/test', 'App\Http\Controllers\TestController@index')->name('index');
