@@ -12,7 +12,7 @@ class TestController extends Controller
         $z = Exam::create(['inscription_date' => $x, 'parcial' => 1, 'retry' => 1, 'status' => 'failed', 'done_workshop' => true, 'done_class' => true]);
         
         $calendar = Calendar::make(['presentation_date' => $x]);
-        $calendar->setExam($z.getId());
+        $calendar->setExam($z->getId());
         $calendar->save();
         dd($calendar);
     }
