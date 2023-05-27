@@ -17,12 +17,18 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/admin/search', function () {
-    return view('admin.search');
+//Lo que este adentro de esto exige que el usuario este loggeado y sea ADMIN
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::get('/admin/search', function () {
+        return view('admin.search');
+    });
 });
 
-Route::get('/exams', function () {
-    return view('user.exams');
+//Lo que este adentro de esto exige que el usuario este loggeado y sea USER
+Route::middleware(['auth', 'user'])->group(function () {
+    Route::get('/exams', function () {
+        return view('user.exams');
+    });
 });
 
 Route::get('/schedule', function () {
