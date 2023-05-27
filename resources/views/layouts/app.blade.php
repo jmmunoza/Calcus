@@ -78,6 +78,18 @@
                         </ul>
                     </div>
                 @endif
+
+                @if (Auth::user()->role == 'admin')
+                    <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
+                        <ul
+                            class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0">
+                            <li>
+                                <a href="{{ route('admin.students.index') }}"
+                                    class="block py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-400 md:p-0">Estudiantes</a>
+                            </li>
+                        </ul>
+                    </div>
+                @endif
             @endauth
 
         </div>
