@@ -65,22 +65,10 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $user = Student::make([
-            'epik_id' => $data['epik_id'],
+        return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            'group_code' => $data['group_code'],
-        ]);
-
-        $user = User::make([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'student_id' => $data['student_id'],
             'password' => Hash::make($data['password']),
         ]);
-
-        $user->save();
-
-        return $user;
     }
 }
