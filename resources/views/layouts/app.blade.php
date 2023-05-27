@@ -34,26 +34,28 @@
                 @endguest
 
                 @auth
-                    <form>
-                        <div class="flex">
-                            <label for="location-search" class="mb-2 text-sm font-medium text-gray-900 sr-only">ID de
-                                estudiante</label>
+                    @if (Auth::user()->role == 'admin')
+                        <form>
+                            <div class="flex">
+                                <label for="location-search" class="mb-2 text-sm font-medium text-gray-900 sr-only">ID de
+                                    estudiante</label>
 
-                            <div class="relative w-full">
-                                <input type="search" id=location-search"
-                                    class="block p-2.5 rounded-lg w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-r-lg border-l-gray-50 border-l-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
-                                    placeholder="ID de estudiante..." required>
-                                <button type="submit"
-                                    class="absolute top-0 right-0 p-2.5 text-sm font-medium text-white bg-blue-500 rounded-r-lg border border-blue-700 hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-blue-300">
-                                    <svg aria-hidden="true" class="w-5 h-5" fill="none" stroke="currentColor"
-                                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                                    </svg>
-                                </button>
+                                <div class="relative w-full">
+                                    <input type="search" id=location-search"
+                                        class="block p-2.5 rounded-lg w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-r-lg border-l-gray-50 border-l-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
+                                        placeholder="ID de estudiante..." required>
+                                    <button type="submit"
+                                        class="absolute top-0 right-0 p-2.5 text-sm font-medium text-white bg-blue-500 rounded-r-lg border border-blue-700 hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-blue-300">
+                                        <svg aria-hidden="true" class="w-5 h-5" fill="none" stroke="currentColor"
+                                            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                                        </svg>
+                                    </button>
+                                </div>
                             </div>
-                        </div>
-                    </form>
+                        </form>
+                    @endif
                     <form action={{ route('logout') }} method="POST">
                         @csrf
                         <button type="submit"
@@ -65,15 +67,17 @@
 
             </div>
             @auth
-                <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
-                    <ul
-                        class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0">
-                        <li>
-                            <a href="#"
-                                class="block py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-400 md:p-0">Supletorios</a>
-                        </li>
-                    </ul>
-                </div>
+                @if (Auth::user()->role == 'user')
+                    <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
+                        <ul
+                            class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0">
+                            <li>
+                                <a href="#"
+                                    class="block py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-400 md:p-0">Supletorios</a>
+                            </li>
+                        </ul>
+                    </div>
+                @endif
             @endauth
 
         </div>

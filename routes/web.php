@@ -22,6 +22,8 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin/search', function () {
         return view('admin.search');
     });
+
+    Route::get('/admin/students', 'App\Http\Controllers\StudentsController@index')->name('index');
 });
 
 //Lo que este adentro de esto exige que el usuario este loggeado y sea USER
