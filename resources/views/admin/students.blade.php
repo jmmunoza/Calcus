@@ -13,7 +13,7 @@
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50">
                     <tr>
                         <th scope="col" class="px-6 py-3">
-                            ID
+                            Epik ID
                         </th>
                         <th scope="col" class="px-6 py-3">
                             Nombre
@@ -21,19 +21,25 @@
                         <th scope="col" class="px-6 py-3">
                             Correo
                         </th>
+                        <th scope="col" class="px-6 py-3">
+                            Código de grupo
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($data['students'] as $student)
                         <tr class="bg-white border-b">
                             <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                                {{$student->id}}
+                                {{$student->epik_id}}
                             </th>
                             <td class="px-6 py-4">
                                 {{$student->name}}
                             </td>
                             <td class="px-6 py-4">
                                 {{$student->email}}
+                            </td>
+                            <td class="px-6 py-4">
+                                {{$student->group_code}}
                             </td>
                         </tr>
                     @endforeach

@@ -22,7 +22,7 @@ class StudentsController extends Controller
     public function index() 
     {
         $data = [];
-        $data['students'] = User::all();
+        $data['students'] = Student::all();
         
         return view('admin.students')->with('data', $data);
     }
