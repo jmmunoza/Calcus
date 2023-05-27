@@ -24,13 +24,12 @@ Route::middleware(['auth', 'admin'])->group(function () {
     });
 
     Route::get('/admin/students', 'App\Http\Controllers\StudentsController@index')->name('admin.students.index');
+    Route::get('/admin/dashboard', 'App\Http\Controllers\DashboardController@index')->name('admin.dashboard.index');
 });
 
 //Lo que este adentro de esto exige que el usuario este loggeado y sea USER
 Route::middleware(['auth', 'user'])->group(function () {
-    Route::get('/exams', function () {
-        return view('user.exams');
-    });
+    Route::get('/exams', 'App\Http\Controllers\ExamsController@index')->name('exams.index');
 });
 
 Route::get('/schedule', function () {
