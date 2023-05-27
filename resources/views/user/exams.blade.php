@@ -87,9 +87,13 @@
                             <td class="px-6 py-4">
                                 {{ $exam['inscription_date'] }}
                             </td>
+                            
                             <td class="px-6 py-4">
-                                <a href="#"
-                                    class="font-medium text-blue-600 text-blue-500 hover:underline">Agendar</a>
+                                @if ($exam['status'] != 'closed' && $exam['done_class'] && $exam['done_workshop']  )
+                                <a href={{route('user.schedule.index', ['id' => $exam['id']])}}
+                                    class="font-medium text-blue-600 text-blue-500 hover:underline">Agendar</a>    
+                                @endif
+                                
                             </td>
                         </tr>
                     @endforeach
