@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -42,4 +43,24 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function getId(): int
+    {
+        return $this->attributes['id'];
+    }
+
+    public function setExam(Exam $exam): void 
+    {
+        $this->exam = $exam;
+    }
+
+    public function getExam(): Exam
+    {
+        return $this->exam;
+    }
+
+    public function student(): HasOne
+    {
+        return $this->hasOne(Student::class);
+    }
 }

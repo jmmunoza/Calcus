@@ -26,4 +26,9 @@ class Calendar extends Model
     {
         return $this->exam;
     }
+
+    public function getId(): int
+    {
+        return $this->attributes['id'];
+    }
 }

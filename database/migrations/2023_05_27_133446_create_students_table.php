@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string('name');
             $table->string('email');
             $table->string('group_code');
+            $table->biginteger('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -26,6 +28,10 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::table('students', function($table) {
+            $table->dropForeign('students_user_id_foreign');
+            $table->dropColumn('user_id');
+        });
         Schema::dropIfExists('students');
     }
 };
