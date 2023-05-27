@@ -4,7 +4,7 @@
         <div class="w-full flex justify-between">
             <h1 class="text-2xl font-semibold text-gray-900">Mis supletorios</h1>
             <button type="button"
-                class="text-blue-900 bg-white hover:bg-gray-300 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-lg px-4 py-2 text-center mr-3 md:mr-0">Crear supletorio</button>
+                class="text-white bg-blue-700 hover:bg-blue-300 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-lg px-4 py-2 text-center mr-3 md:mr-0">Crear supletorio</button>
         </div>
 
         <div class="relative w-full overflow-x-auto shadow-md space-y-4 sm:rounded-lg">
