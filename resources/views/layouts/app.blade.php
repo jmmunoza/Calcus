@@ -19,7 +19,7 @@
 </head>
 
 <body class="flex flex-col h-screen bg-gray-200">
-    <nav class="bg-gradient-to-r from-blue-900 to-blue-700 w-full z-20 top-0 left-0 border-b border-gray-200">
+    <nav class="bg-gradient-to-r from-blue-900 to-blue-700 w-full z-20 top-0 left-0 border-b border-blue-500">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
             <a href="/" class="flex items-center">
                 <img src={{ asset('images/EAFITLogo.png') }} alt="Logo" class="h-8 mr-2" />
@@ -34,13 +34,6 @@
                 @endguest
 
                 @auth
-                    <form action={{ route('logout') }} method="POST">
-                        @csrf
-                        <button type="submit"
-                            class="text-blue-900 bg-white hover:bg-gray-300 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0">Cerrar
-                            sesión</button>
-                    </form>
-
                     <form>
                         <div class="flex">
                             <label for="location-search" class="mb-2 text-sm font-medium text-gray-900 sr-only">ID de
@@ -60,6 +53,12 @@
                                 </button>
                             </div>
                         </div>
+                    </form>
+                    <form action={{ route('logout') }} method="POST">
+                        @csrf
+                        <button type="submit"
+                            class="text-blue-900 bg-white hover:bg-gray-300 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0">Cerrar
+                            sesión</button>
                     </form>
                 @endauth
 
