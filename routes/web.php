@@ -24,6 +24,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
     });
 
     Route::get('/admin/students', 'App\Http\Controllers\StudentsController@index')->name('admin.students.index');
+    Route::get('/admin/dashboard', 'App\Http\Controllers\DashboardController@index')->name('admin.dashboard.index');
 });
 
 //Lo que este adentro de esto exige que el usuario este loggeado y sea USER

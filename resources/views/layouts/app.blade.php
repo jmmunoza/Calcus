@@ -87,6 +87,10 @@
                                 <a href="{{ route('admin.students.index') }}"
                                     class="block py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-400 md:p-0">Estudiantes</a>
                             </li>
+                            <li>
+                                <a href="{{ route('admin.dashboard.index') }}"
+                                    class="block py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-400 md:p-0">Dashboard</a>
+                            </li>
                         </ul>
                     </div>
                 @endif
