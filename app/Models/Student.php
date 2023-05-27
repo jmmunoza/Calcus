@@ -10,7 +10,17 @@ class Student extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'last_name', 'email', 'group_code', 'epik_id', 'done_class'];
+    protected $fillable = ['name', 'email', 'group_code', 'epik_id'];
+
+    public static function validate($request): void
+    {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'group_code' => 'required|gt:0',
+            'epik_id' => 'required|gt:0',
+        ]);
+    }
 
    public function exams(): HasMany
     {
