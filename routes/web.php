@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('layouts.app');
+    return view('home');
 });
 
 //Lo que este adentro de esto exige que el usuario este loggeado y sea ADMIN
@@ -22,6 +22,8 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin/search', function () {
         return view('admin.search');
     });
+
+    Route::get('/admin/students', 'App\Http\Controllers\StudentsController@index')->name('admin.students.index');
 });
 
 //Lo que este adentro de esto exige que el usuario este loggeado y sea USER

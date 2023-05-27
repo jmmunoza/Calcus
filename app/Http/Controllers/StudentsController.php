@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Student;
+use App\Models\User;
 
 class StudentsController extends Controller
 {
@@ -16,5 +17,13 @@ class StudentsController extends Controller
             'epik_id' => $request['epik_id']
         ]);
 
+    }
+
+    public function index() 
+    {
+        $data = [];
+        $data['students'] = User::all();
+        
+        return view('admin.students')->with('data', $data);
     }
 }   
