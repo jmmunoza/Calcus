@@ -15,13 +15,14 @@ return new class extends Migration
             $table->id();
             $table->date('inscription_date');
             $table->integer('parcial');
-            $table->string('student_id');
             $table->integer('retry');
-            $table->date('presentation_date');
             $table->string('status');
             $table->boolean('done_workshop');
-            $table->boolean('done_workshop');
-            $table->timestamps('done_class');
+            $table->boolean('done_class');
+
+            $table->biginteger('student_id')->unsigned();
+            $table->foreign('student_id')->references('id')->on('students')->onUpdate('cascade')->onDelete('cascade');;
+            $table->timestamps();
         });
     }
 
@@ -30,6 +31,10 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::table('exams', function($table) {
+            $table->dropForeign('exams_student_id_foreign');
+            $table->dropColumn('student_id');
+        });
         Schema::dropIfExists('exams');
     }
 };
